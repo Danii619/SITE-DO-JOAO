@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODERNÃO B-DAY EXPERIENCE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --dark-bg: #050d05;
+            --surface: #0a1a0a;
+            --text: #e0ffe0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            font-family: 'Roboto Mono', monospace;
+            overflow-x: hidden;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(57, 255, 20, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 2px solid var(--neon-green);
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            color: var(--neon-green);
+            text-shadow: 0 0 20px rgba(57, 255, 20, 0.7);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #000;
+            background: var(--neon-green);
+            padding: 5px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .frase-lenda {
+            font-size: 1.3rem;
+            color: #fff;
+            max-width: 600px;
+            border: 1px solid var(--neon-green);
+            padding: 15px;
+            background: rgba(57, 255, 20, 0.1);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: var(--neon-green);
+            margin-bottom: 50px;
+            border-left: 10px solid var(--neon-green);
+            padding-left: 20px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .art-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* CONTAINER DOS DESENHOS DENTRO DO SITE */
+        .drawing-container {
+            aspect-ratio: 1;
+            background: #112211;
+            border: 3px dashed var(--neon-green);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-green);
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .drawing-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #112211;
+        }
+
+        .drawing-container span {
+            position: relative;
+            z-index: 2;
+            background: rgba(5, 13, 5, 0.8);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .drawing-container i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            padding: 100px 20px;
+            text-align: center;
+            background: #000;
+            border-top: 2px solid var(--neon-green);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--neon-green);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 30px var(--neon-green);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 4rem; }
+            h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+
+    <header>
+        <p style="margin-bottom: 10px;">TRANSFORMANDO O MULTIVERSO EM...</p>
+        <h1>JOÃO<br>MODERNÃO</h1>
+        <div class="hero-subtitle">Protocolo de Aniversário Ativado</div>
+        <div class="frase-lenda">"Tu é o João, mas eu sou a Lenda, a Lenda"</div>
+        <p style="margin-top: 20px;">By: Danii</p>
+    </header>
+
+    <section id="interesses">
+        <h2>MULTIVERSO DO JOÃO</h2>
+        <div class="content-grid">
+            <div class="card">
+                <h3>TRANSFORMERS</h3>
+                <p style="margin-top: 15px;">O único cara que se transforma de "fortão" em "nerddy de StarWars e smallville" em menos de 5 segundos. Autobots, vamos pro bolo!</p>
+            </div>
+            <div class="card">
+                <h3>STAR WARS</h3>
+                <p style="margin-top: 15px;">A força é forte nele, mas ele não teria a coragem que o Anakin teve. (ou será que não?).</p>
+            </div>
+            <div class="card">
+                <h3>THE BOYS</h3>
+                <p style="margin-top: 15px;">Um Supe de classe mundial. Poder especial: ser chamado de João e ainda manter a marra de Modernão.</p>
+            </div>
+            <div class="card">
+                <h3>JURASSIC WORLD</h3>
+                <p style="margin-top: 15px;">Ele é o T-Rex da galera: quando chega, todo mundo sente o impacto (ou só o barulho da risada mesmo).</p>
+            </div>
+            <div class="card">
+                <h3>DC / HERÓIS</h3>
+                <p style="margin-top: 15px;">Justiça? Sim. Capa? Talvez. Descontrole constante? Com certeza. O Batman que a gente merece.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" style="background: rgba(0,0,0,0.3);">
+        <h2>OS BAGUIO É HARDICORE</h2>
+        <p style="margin-bottom: 30px;">se o cê quise Alek cê usa esses negócio aí como figurinha istick isticker spendisplondi sla alek:</p>
+        <div class="art-gallery">
+            
+            <div class="drawing-container">
+                <i class="fa-solid fa-robot"></i>
+                <img src="zoiocarro.png" alt="João Transformer" onerror="this.style.display='none'">
+                <span>ZOIO TRANSFORMER</span>
+            </div>
+
+            <div class="drawing-container">
+                <i class="fa-solid fa-jedi"></i>
+                <img src="zoiojedi.png" alt="João Jedi" onerror="this.style.display='none'">
+                <span>ZOIO MAUL</span>
+            </div>
+
+            <div class="drawing-container">
+                <i class="fa-solid fa-mask"></i>
+                <img src="zoiocapitao.png" alt="João Homelander" onerror="this.style.display='none'">
+                <span>ZOIO CAPITAO PATRIA</span>
+            </div>
+
+            <div class="drawing-container">
+                <i class="fa-solid fa-dragon"></i>
+                <img src="zoiorex.png" alt="João Rex" onerror="this.style.display='none'">
+                <span>ZOIO REX</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h2>DADOS DO MODERNÃO</h2>
+        <div class="card" style="max-width: 600px;">
+            <p style="margin-bottom: 10px;"><strong>Nível de Estilo:</strong> 9999%</p>
+            <p style="margin-bottom: 10px;"><strong>Chance de Virar Caminhão:</strong> 45% (se estiver cansado)</p>
+            <p style="margin-bottom: 10px;"><strong>Resistência a Spoilers:</strong> 0%</p>
+            <p><strong>Parceria com Danii:</strong> Fechamento Eterno</p>
+        </div>
+    </section>
+
+    <footer>
+        <h1>FELIZ ANIVERSÁRIO!</h1>
+        <p>João, você é o melhor militar fake da historinha que eu conheço. Tamo junto.</p>
+        <p style="margin-top: 20px; color: var(--neon-green); font-weight: bold;">Assinado: Danii.</p>
+        <a href="#" class="btn" onclick="alert('O meu nome é Luciano... O resto da música tu sabe.'); return false;">ATIVAR MODO FESTA</a>
+    </footer>
+
+</body>
+</html>
